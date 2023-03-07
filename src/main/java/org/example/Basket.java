@@ -86,6 +86,14 @@ public class Basket {
         return this;
     }
 
+    public Basket sortByClassName() {
+        sortService.setComparator(Comparator.comparing(o -> o.getClass().getSimpleName()));
+        if (reverseFlag) {
+            sortService.reverseComparator();
+        }
+        return this;
+    }
+
     public void executeSort() {
         Ball[] balls = this.getArray();
         if (reverseFlag) {
