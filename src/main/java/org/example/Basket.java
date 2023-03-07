@@ -34,8 +34,13 @@ public class Basket {
     public void setBasketContent(Ball[] array) {
         ListIterator<Ball> iterator = basketContent.listIterator();
         for (Ball ball : array) {
-            iterator.next();
-            iterator.set(ball);
+            if(!iterator.hasNext()){
+                iterator.add(ball);
+            } else {
+                iterator.next();
+                iterator.set(ball);
+            }
+
         }
     }
 
